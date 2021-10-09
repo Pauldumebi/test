@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Test</title>
 </head>
 <body>
     
@@ -16,56 +16,38 @@
             for(let j = i + 1; j < str.length; j++)
                 if (str[i] == str[j])
                     //If duplicate exist
-                    // console.log("Duplicate exists")
                     return false;
         //If no duplicate
-        // console.log("All characters are unique")
         return true;
     }
 
     //Display the result
-    // if(checkUniqueCharacters("awele"))
-    //     document.write("Yes");
-    // else
-    //     document.write("No");
+    if(checkUniqueCharacters("awele"))
+        document.write("Yes");
+    else
+        document.write("No");
     
 //---------------------------------------------------------------------------------//
     //2. Check for permutation
-    const arePermutation = (str1, str2) => {
-        // Get the lengths of both strings
-        let n1 = str1.length;
-        let n2 = str2.length;
-    
-        // If length of both strings is not same, then they cannot be Permutation
-        if (n1 != n2)
-            return false;
-            
-        let ch1 = str1.split(' ');
-        let ch2 = str2.split(' ');
-    
-        // Sort both strings
-        ch1.sort();
-        ch2.sort();
-
-        console.log(ch1)
-        console.log(ch2)
-    
-        // Compare sorted strings
-        for(let i = 0; i < n1; i++)
-            if (ch1[i] != ch2[i])
-                return false;
-    
-        return true;
+   function sort(string) {
+        return string
+        .split("")
+        .sort()
+        .join("");
     }
 
-    let str1 = "it";
-    let str2 = "ti";
+    function isPermutation(s1, s2) {
+        if (sort(s1) === (sort(s2))) {
+            return true;
+        }
+        return false;
+    }
 
-    //Display the result
-    // if(arePermutation(str1, str2))
-    //     document.write("Yes");
-    // else
-    //     document.write("No");
+    // Display the result
+    if(isPermutation("dog", "god"))
+        document.write("Yes");
+    else
+        document.write("No");
 
 //---------------------------------------------------------------------------------//
     //3. Replace all spaces in a string
@@ -74,7 +56,7 @@
     str = str.replaceAll(" ", "%20");
 
     // Display the result
-    // document.write(str);
+    document.write(str);
 
 //---------------------------------------------------------------------------------//
     //4. Can form a palindrome
@@ -101,11 +83,12 @@
             return Object.keys(hash).length === 1;
         };
     };
+
     //Display the result
-    // if(canFormPalindrome(string))
-    //     document.write("Yes");
-    // else
-    //     document.write("No");
+    if(canFormPalindrome(string))
+        document.write("Yes");
+    else
+        document.write("No");
 
 //--------------------------------------------------------------------------------------//
     //5. Check if string is one edit away 
@@ -173,10 +156,10 @@
     let s1 = "gfg";
     let s2 = "gf";
 
-    // if(isEditDistanceOne(s1, s2))
-    //     document.write("Yes");
-    // else
-    //     document.write("No");
+    if(isEditDistanceOne(s1, s2))
+        document.write("Yes");
+    else
+        document.write("No");
 
 //--------------------------------------------------------------------------------------//
     //6. Check if string is one edit away 
@@ -200,7 +183,7 @@
         }
         console.log(output);
     }
-    // stringCompression("aaaaaaab");
+    stringCompression("aaaaaaab");
     </script>
 </body>
 </html>
