@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+
+    //1. Check for unique characters
+    const checkUniqueCharacters = (str) => {
+        for(let i = 0; i < str.length; i++)
+            for(let j = i + 1; j < str.length; j++)
+                if (str[i] == str[j])
+                    //If duplicate exist
+                    // console.log("Duplicate exists")
+                    return false;
+        //If no duplicate
+        // console.log("All characters are unique")
+        return true;
+    }
+
+    //Display the result
+    // if(checkUniqueCharacters("awele"))
+    //     document.write("Yes");
+    // else
+    //     document.write("No");
+    
+//---------------------------------------------------------------------------------//
+    //2. Check for permutation
+    const arePermutation = (str1, str2) => {
+        // Get the lengths of both strings
+        let n1 = str1.length;
+        let n2 = str2.length;
+    
+        // If length of both strings is not same, then they cannot be Permutation
+        if (n1 != n2)
+            return false;
+            
+        let ch1 = str1.split(' ');
+        let ch2 = str2.split(' ');
+    
+        // Sort both strings
+        ch1.sort();
+        ch2.sort();
+
+        console.log(ch1)
+        console.log(ch2)
+    
+        // Compare sorted strings
+        for(let i = 0; i < n1; i++)
+            if (ch1[i] != ch2[i])
+                return false;
+    
+        return true;
+    }
+
+    let str1 = "it";
+    let str2 = "ti";
+
+    //Display the result
+    // if(arePermutation(str1, str2))
+    //     document.write("Yes");
+    // else
+    //     document.write("No");
+
+//---------------------------------------------------------------------------------//
+    //3. Replace all spaces in a string
+    var str = "Mr John Smith ";
+    str = str.trim();
+    str = str.replaceAll(" ", "%20");
+
+    // Display the result
+    // document.write(str);
+
+//---------------------------------------------------------------------------------//
+    //4. Can form a palindrome
+
+    const string = 'amadm';
+    const canFormPalindrome = (string = '') => {
+        const hash = {};
+        let count = 0;
+        for (let i = 0; i < string.length; i++) {
+            let c = string[i];
+            if(c === ' '){
+                continue;
+            };
+            if(hash[c]){
+                delete hash[c];
+            }else{
+                hash[c] = true;
+            };
+            count++;
+        };
+        if(count % 2 === 0){
+            return Object.keys(hash).length === 0;
+        }else{
+            return Object.keys(hash).length === 1;
+        };
+    };
+    //Display the result
+    // if(canFormPalindrome(string))
+    //     document.write("Yes");
+    // else
+    //     document.write("No");
+
+//--------------------------------------------------------------------------------------//
+    //5. Check if string is one edit away 
+
+    const isEditDistanceOne = (s1, s2) => {
+ 
+        // Find lengths of given strings
+        let m = s1.length, n = s2.length;
+ 
+        // If difference between lengths is
+        // more than 1, then strings can't
+        // be at one distance
+        if (Math.abs(m - n) > 1)
+            return false;
+ 
+            // Count of edits
+            let count = 0;
+            let i = 0, j = 0;
+ 
+        while (i < m && j < n)
+        {
+            // If current characters
+            // don't match
+            if (s1[i] != s2[j])
+            {
+                if (count == 1)
+                    return false;
+ 
+                // If length of one string is
+                // more, then only possible edit
+                // is to remove a character
+                if (m > n)
+                    i++;
+                else if (m< n)
+                    j++;
+ 
+                 // If lengths of both
+                 // strings is same
+                else
+                {
+                    i++;
+                    j++;
+                }
+ 
+                // Increment count of edits
+                count++;
+            }
+ 
+            // If current characters match
+            else
+            {
+                i++;
+                j++;
+            }
+        }
+ 
+        // If last character is extra
+        // in any string
+        if (i < m || j < n)
+            count++;
+ 
+        return count == 1;
+    }
+     
+    let s1 = "gfg";
+    let s2 = "gf";
+
+    // if(isEditDistanceOne(s1, s2))
+    //     document.write("Yes");
+    // else
+    //     document.write("No");
+
+//--------------------------------------------------------------------------------------//
+    //6. Check if string is one edit away 
+    
+
+    </script>
+</body>
+</html>
